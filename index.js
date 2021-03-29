@@ -245,7 +245,9 @@ async function run() {
     await renderFiles(valueFiles.concat(["./values.yml"]), {
       secrets,
       deployment: context.payload.deployment,
-      sha: context.github.sha
+      github: {
+        sha: context.github.sha
+      }
     });
 
     // Remove the canary deployment before continuing.
